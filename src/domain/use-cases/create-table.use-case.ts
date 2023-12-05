@@ -18,7 +18,10 @@ export class CreateTable implements CreateTableUseCase {
     execute( {base, limit = 10}: CreateTableOptions) {
         let tableResultOutput = ''
         for (let i = 1; i <= limit; i++) {
-            tableResultOutput += `${base} x ${i} = ${ i * base} \n`
+            tableResultOutput += `${base} x ${i} = ${ i * base}`
+            if ( i < limit ) {
+                tableResultOutput += '\n';
+            }
         }
         return tableResultOutput;
     }

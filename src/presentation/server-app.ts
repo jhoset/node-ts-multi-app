@@ -18,8 +18,11 @@ export class ServerApp {
         console.log('Server running...')
         
         const table = new CreateTable().execute({base, limit});
-        const wasCreated = new SaveFile().execute({fileContent: table, fileDestination: destination, fileName: name})
+        const wasCreated = new SaveFile().execute(
+            {fileContent: table, fileDestination: destination, fileName: name}
+            )
         if ( showTable ) console.log(table);
-        ( wasCreated ) ? console.log('File Created successfully') : console.log('Something went wrong');
+        console.log(wasCreated);
+        ( wasCreated ) ? console.log('File Created successfully') : console.error('Something went wrong');
     }
 }
